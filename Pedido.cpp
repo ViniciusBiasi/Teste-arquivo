@@ -17,3 +17,7 @@ std::string Pedido::getdata()
 
     return (d1+"/"+m1+"/"+y1);
 }
+void Pedido::setdata(int y,int m,int d)
+{
+    data.setDate(y,m,d);
+}

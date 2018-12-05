@@ -13,30 +13,30 @@ class Pesfisica : public Pessoa
 private:
     string cdpessoafis;
     string nome;
-    int celular;
+    long celular;
 
 public:
     Pesfisica();
     friend ostream& operator << (ostream& saida,Pesfisica& Pessoa)
     {
-       saida <<Pessoa.codigo <<";"
-            << Pessoa.nome       <<";"
-            << Pessoa.cdpessoafis<<";"
-            << Pessoa.celular    <<";"
-            << Pessoa.logradouro <<";"
-            << Pessoa.setor      <<";"
-            << Pessoa.cidade     <<";"
-            << Pessoa.estado     <<";"
-            << Pessoa.telefone   <<";:"
-            << Pessoa.email      <<endl;
+       saida  << "CODIGO:"<<Pessoa.codigo <<";"
+             << "NOME:"<< Pessoa.nome       <<";"
+             << "CPF:"<< Pessoa.cdpessoafis<<";"
+            << "CELULAR:" << Pessoa.celular    <<";"
+             << "LOGRADOURO:"<< Pessoa.logradouro <<";"
+            << "SETOR:" << Pessoa.setor      <<";"
+            << "CIDADE:" << Pessoa.cidade     <<";"
+             << "ESTADO:" << Pessoa.estado     <<";"
+             << "TELEFONE:"<< Pessoa.telefone   <<";:"
+             << "EMAIL:"<< Pessoa.email      <<endl;
 
         return saida;
     }
     bool validacpf(string);
     void setnome(string x){nome=x;}
     string getnome(){return nome;}
-    void setcelular(int num){celular=num;}
-    int getcelular(){return celular;}
+    void setcelular(long num){celular=num;}
+    long getcelular(){return celular;}
 
 };
 #endif // CPF_H

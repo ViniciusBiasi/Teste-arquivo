@@ -7,20 +7,16 @@ class Item
 {
 private:
 
-    Produto objproduto;
+    std::string objproduto;
     int quantidade;
     float pcounitario,valortotal; //pcounitario = Preço unitario;
+    Produto* busca;
 
 
 public:
     Item();
-    void setproduto(Produto *aux)
-    {
-        if(aux!=nullptr)
-        {
-            objproduto=*aux;
-        }
-    }
+    void setproduto(std::string aux){objproduto=aux;}
+    bool buscaprod(Produto* aux);
     int getquanti() { return quantidade;}
     float getpcounitario() { return pcounitario;}
     float getvalortotal() { return valortotal;}
@@ -31,7 +27,7 @@ public:
     {
         Item* p=new Item();
         std::string delimitador=";", atributo;
-        int pos=0;
+        unsigned long pos=0;
 
         atributo = linha.substr(0, linha.find(delimitador));
         p->setquanti(std::stoi(atributo));

@@ -7,7 +7,7 @@ class Pessoa
 {
 protected:
     std::string codigo,logradouro,setor,cidade,estado,email;
-    int telefone;
+    long telefone;
 
 public:
     Pessoa();
@@ -17,14 +17,14 @@ public:
     std::string getcidade() {return cidade;}
     std::string getestado() {return estado;}
     std::string getemail() {return email;}
-    int gettelefone() {return telefone;}
+    long gettelefone() {return telefone;}
     void setcodigo(std::string aux) {codigo=aux;}
     void setlogradouro(std::string aux) {logradouro=aux;}
     void setsetor(std::string aux) {setor=aux;}
     void setcidade(std::string aux) {cidade=aux;}
     void setestado(std::string aux) {estado=aux;}
     void setemail(std::string aux) {email=aux;}
-    void settelefone(int aux) {telefone=aux;}
+    void settelefone(long aux) {telefone=aux;}
 
 };
 

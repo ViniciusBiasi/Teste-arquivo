@@ -4,7 +4,7 @@
 #include <queue>
 #include <QDate>
 #include "Item.h"
-
+#include <iostream>
 
 class Pedido: public Pessoa
 {
@@ -20,13 +20,13 @@ public:
     Pedido();
     friend ostream& operator << (ostream& saida,Pedido& pedid)
     {
-        saida<<pedid.numero<<";"
-             <<pedid.status<<";"
-             <<pedid.getdata()<<";"
-             <<pedid.valortotal<<";"
-             <<pedid.objitem.getquanti()<<";"
-             <<pedid.objitem.getpcounitario()<<";"
-             <<pedid.objitem.getvalortotal()<<std::endl;
+        saida << "NUMERO DO PEDIDO:"<<pedid.numero<<";"
+             << "STATUS:" <<pedid.status<<";"
+             << "DATA:" <<pedid.getdata()<<";"
+              << "VALOR TOTAL:"<<pedid.valortotal<<";"
+             << "QUANTIDADE:" <<pedid.objitem.getquanti()<<";"
+              << "PREÇO UNITARIO:"<<pedid.objitem.getpcounitario()<<";"
+              << "VALOR TOTAL:"<<pedid.objitem.getvalortotal()<<std::endl;
 
 
         return saida;
@@ -39,6 +39,7 @@ public:
     void setstatus(std::string status){ this->status=status;}
     std::string getstatus(){return status;}
     void setdata(){data=QDate::currentDate();}
+    void setdata(int y,int m,int d);
     std::string getdata();
     void setitem(Item *aux){ objitem=*aux;}
     void setcliente(std::string x)
@@ -50,7 +51,7 @@ public:
     {
         Pedido* p=new Pedido();
         std::string delimitador=";", atributo;
-        int pos=0;
+        unsigned long pos=0;
 
         atributo = linha.substr(0, linha.find(delimitador));
         p->setnumero(std::stoi(atributo));
@@ -60,6 +61,12 @@ public:
 
         atributo = linha.substr(0, linha.find(delimitador));
         p->setstatus(atributo);
+        pos=atributo.length()+1;
+        linha = linha.substr(pos);
+        atributo.erase();
+
+        atributo = linha.substr(0, linha.find(delimitador));
+        p->setdata();
         pos=atributo.length()+1;
         linha = linha.substr(pos);
         atributo.erase();
