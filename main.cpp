@@ -29,6 +29,10 @@ int main()
     Pedido pedi;
     long telefone;
 
+//    QList<Pesfisica *> listaClientesFisica;
+//    QList<Produto *> listaProduto;
+//    QList<Juridica*> listaClientesJuridica;
+
 
 
     string nomeArquivolist = "listaitems.txt", delimitador=";", linha;
@@ -345,7 +349,6 @@ int main()
             // EXCLUSÃO DOS DADOS DOS ARQUIVOS
 
             puts("DIGITE A LETRA: w PARA APAGAR TODOS OS DADOS ARMAZENADOS NOS ARQUIVOS... \n");
-
             fclose(fopen("filapedidos.txt", "w"));
             fclose(fopen("Pessoas Juri.txt","w"));
             fclose(fopen("listaitems.txt", "w"));
